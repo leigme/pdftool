@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "templatePath": "E:\\Desktop\\template.html",
+  "targetPath": "E:\\Desktop\\target.html",
+  "pdfPath": "E:\\Desktop\\target.pdf",
+  "content": [
+    "<p><span style='font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background-color: rgb(255, 255, 255);'>问题&nbsp;</span><span class='required' style='margin: 0px; padding: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; color: rgb(231, 118, 37); font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background: rgb(255, 255, 255);'>*</span><span style='font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background-color: rgb(255, 255, 255);'>问题&nbsp;</span><span class='required' style='margin: 0px; padding: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; color: rgb(231, 118, 37); font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background: rgb(255, 255, 255);'>*</span><span style='font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background-color: rgb(255, 255, 255);'>问题&nbsp;</span><span class='required' style='margin: 0px; padding: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; color: rgb(231, 118, 37); font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background: rgb(255, 255, 255);'>*</span><span style='font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background-color: rgb(255, 255, 255);'>问题&nbsp;</span><span class='required' style='margin: 0px; padding: 0px; outline: 0px; font-size: 12px; vertical-align: baseline; color: rgb(231, 118, 37); font-family: &#39;Microsoft YaHei&#39;; line-height: 25px; background: rgb(255, 255, 255);'>*</span></p>",
+    "<p>一、选择题</p><p>1,下面哪个选项是正确的？</p><p>&nbsp;&nbsp;&nbsp;&nbsp;A</p><p>&nbsp;&nbsp;&nbsp; B</p><p>&nbsp;&nbsp;&nbsp;&nbsp;C</p><p>&nbsp;&nbsp;&nbsp; D</p>",
+    "<p>不会食不果腹以后就会不是的b</p><p>你叫撒kin</p><p>美的时刻</p><p>没事可能分开</p><p>面对卡维纳吉</p>"
+  ]
+}

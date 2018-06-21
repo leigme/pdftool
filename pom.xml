@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.yhcloud.pdftool</groupId>
+  <artifactId>pdftool</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>pdftool</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.yhcloud.com.cn</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <!-- main 包名称 -->
+    <main.path>com.yhcloud.pdftool.App</main.path>
+    <!-- toolbox 输出项目路径定义 -->
+    <build.path>D:\pdftool</build.path>
+    <!-- toolbox 输出依赖路径定义 -->
+    <libs.path>D:\pdftool\libs</libs.path>
+    <skipTests>true</skipTests>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.16</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.5</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.itextpdf/html2pdf -->
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>html2pdf</artifactId>
+      <version>2.0.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.itextpdf/itext7-core -->
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>itext7-core</artifactId>
+      <version>7.1.2</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+    <dependency>
+      <groupId>org.apache.pdfbox</groupId>
+      <artifactId>pdfbox</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <!-- resources -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <!-- main 入口 配置 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${main.path}</mainClass>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>libs/</classpathPrefix>
+            </manifest>
+
+            <!-- 缺什么加什么 -->
+<!--
+            <manifestEntries>
+              <Class-Path>libs/rw-parse-30-1.0-SNAPSHOT.jar</Class-Path>
+            </manifestEntries>
+-->
+          </archive>
+        </configuration>
+      </plugin>
+
+      <!-- 拷贝依赖的jar包到libs目录 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <!-- ${project.build.directory} 构建目录，缺省为target -->
+              <outputDirectory>${libs.path}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- 将代码放置到指定目录下 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <configuration>
+              <tasks>
+                <!-- 导出jar包 -->
+                <echo>导出jar包=================开始</echo>
+                <copy todir="${build.path}">
+                  <fileset dir="${project.build.directory}">
+                    <include name="*.jar"/>
+                  </fileset>
+                </copy>
+                <echo>导出jar包=================结束</echo>
+              </tasks>
+
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
